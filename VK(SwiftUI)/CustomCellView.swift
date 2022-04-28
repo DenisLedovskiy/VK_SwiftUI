@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CellCintentView: View {
+struct CellContentView: View {
 
     var body: some View {
         CellView()
@@ -40,7 +40,7 @@ struct CellView: View {
 
 struct CustomCellView_Previews: PreviewProvider {
     static var previews: some View {
-        CellCintentView()
+        CellContentView()
     }
 }
 
