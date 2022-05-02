@@ -17,8 +17,9 @@ struct CellImage: View {
     
     var body: some View { content
         .resizable()
-        .frame(width: 80, height: 80, alignment: .leading)
+        .frame(width: 60, height: 60, alignment: .leading)
         .cornerRadius(75)
         .modifier(CircleShadow(shadowColor: .gray, shadowRadius: 3))
+        .padding(.vertical, 5)
     }
 }
