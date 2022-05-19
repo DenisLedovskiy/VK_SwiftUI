@@ -6,14 +6,22 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct GalleryView: View {
 
-    var gallery: ViewDataCell
+//    var gallery: ViewDataCell
+
+    @ObservedObject var viewModel: GalleryViewFactory
+
+    init(viewModel: GalleryViewFactory) {
+        self.viewModel = viewModel
+
+    }
 
     var body: some View {
 
-        let photoArray = gallery.gallery.chunked(into: 2)
+        let photoArray = viewModel.photos.chunked(into: 2)
 
         return VStack {
 
@@ -30,7 +38,7 @@ struct GalleryView: View {
                                 HStack {
 
                                     Spacer()
-                                    Image("\(photoArray[idx][index])")
+                                    WebImage(url: URL(string:photoArray[idx][index]))
                                         .resizable()
                                         .frame(maxWidth: 200, maxHeight: 200)
                                         .cornerRadius(8)
@@ -42,15 +50,17 @@ struct GalleryView: View {
                     }
                 }
             }
+            .onAppear { viewModel.fetch() }
         }
+//        .onAppear { viewModel.fetch() }
     }
 }
 
-struct GalleryView_Previews: PreviewProvider {
-    static var previews: some View {
-        GalleryView(gallery: FriendList.friends.first!)
-    }
-}
+//struct GalleryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GalleryView(gallery: FriendList.friends.first!)
+//    }
+//}
 
 
 

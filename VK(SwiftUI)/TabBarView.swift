@@ -10,12 +10,12 @@ import SwiftUI
 struct TabBarView: View {
     var body: some View {
         TabView {
-            FriendListView()
+            FriendListView(viewModel: FriendsViewFactory(api: FriendsAPI()))
                 .tabItem {
                     Image(systemName: "phone")
                     Text("Друзья")
                 }
-            GroupsListView()
+            GroupsListView(viewModel: GroupsViewFactory(api: GroupsAPI(), coreDS: CoreDataService(modelName: "ModelCoreData")))
                 .tabItem {
                     Image(systemName: "heart")
                     Text("Группы")

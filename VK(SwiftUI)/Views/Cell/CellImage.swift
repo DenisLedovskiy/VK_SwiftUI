@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CellImage: View {
 
-    var content: Image
+    var content: WebImage
 
-    init(@ViewBuilder content: () -> Image) {
+    init(@ViewBuilder content: () -> WebImage) {
         self.content = content()
     }
     
