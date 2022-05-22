@@ -10,8 +10,6 @@ import SDWebImageSwiftUI
 
 struct GalleryView: View {
 
-//    var gallery: ViewDataCell
-
     @ObservedObject var viewModel: GalleryViewFactory
 
     init(viewModel: GalleryViewFactory) {
@@ -36,13 +34,15 @@ struct GalleryView: View {
                             ForEach(photoArray[idx].indices, id:\.self) { index in
 
                                 HStack {
-
-                                    Spacer()
-                                    WebImage(url: URL(string:photoArray[idx][index]))
-                                        .resizable()
-                                        .frame(maxWidth: 200, maxHeight: 200)
-                                        .cornerRadius(8)
-
+                                        Spacer()
+                                    ZStack {
+                                        WebImage(url: URL(string:photoArray[idx][index]))
+                                            .resizable()
+                                            .frame(maxWidth: 200, maxHeight: 200)
+                                            .cornerRadius(8)
+                                        LikeButton()
+                                            .position(x: 170, y: 188)
+                                    }
                                     Spacer()
                                 }
                             }
@@ -52,7 +52,6 @@ struct GalleryView: View {
             }
             .onAppear { viewModel.fetch() }
         }
-//        .onAppear { viewModel.fetch() }
     }
 }
 

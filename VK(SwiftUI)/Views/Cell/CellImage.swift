@@ -12,6 +12,8 @@ struct CellImage: View {
 
     var content: WebImage
 
+    @State private var isScaled = false
+
     init(@ViewBuilder content: () -> WebImage) {
         self.content = content()
     }
@@ -22,5 +24,14 @@ struct CellImage: View {
         .cornerRadius(75)
         .modifier(CircleShadow(shadowColor: .gray, shadowRadius: 3))
         .padding(.vertical, 5)
+        .scaleEffect(isScaled ? 2.0 : 1.0)
+        .onTapGesture {
+            withAnimation(.spring(response: 0.4,
+                                  dampingFraction: 0.8,
+                                  blendDuration: 0.5)) {
+                self.isScaled.toggle()
+            }
+            self.isScaled.toggle()
+        }
     }
 }
