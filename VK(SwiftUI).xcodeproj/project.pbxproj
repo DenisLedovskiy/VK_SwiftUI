@@ -35,6 +35,7 @@
 		92BC5D1D2815A01100E7448C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92BC5D1C2815A01100E7448C /* Assets.xcassets */; };
 		92BC5D202815A01100E7448C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92BC5D1F2815A01100E7448C /* Preview Assets.xcassets */; };
 		92BC5D272819D07D00E7448C /* CustomCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BC5D262819D07D00E7448C /* CustomCellView.swift */; };
+		92BE12EA283A813600598DC6 /* CodingStyleSPM in Frameworks */ = {isa = PBXBuildFile; productRef = 92BE12E9283A813600598DC6 /* CodingStyleSPM */; };
 		92CD9706281FD5EA00B63B6A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD9705281FD5EA00B63B6A /* Extensions.swift */; };
 		92CD970828201DAE00B63B6A /* VKLoginWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CD970728201DAE00B63B6A /* VKLoginWebView.swift */; };
 		92FE9CED281B34300014D23C /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE9CEC281B34300014D23C /* TabBarView.swift */; };
@@ -70,6 +71,7 @@
 		92BC5D1C2815A01100E7448C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92BC5D1F2815A01100E7448C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		92BC5D262819D07D00E7448C /* CustomCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellView.swift; sourceTree = "<group>"; };
+		92BE12E6283A7CA200598DC6 /* CodingStyleSPM */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CodingStyleSPM; path = ../CodingStyleSPM; sourceTree = "<group>"; };
 		92CD9705281FD5EA00B63B6A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		92CD970728201DAE00B63B6A /* VKLoginWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginWebView.swift; sourceTree = "<group>"; };
 		92FE9CEC281B34300014D23C /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92BE12EA283A813600598DC6 /* CodingStyleSPM in Frameworks */,
 				9228E738283544820009AB5A /* SDWebImageSwiftUI in Frameworks */,
 				9228E73128353AA40009AB5A /* Alamofire in Frameworks */,
 			);
@@ -179,6 +182,7 @@
 		92BC5D0C2815A01000E7448C = {
 			isa = PBXGroup;
 			children = (
+				92BE12E6283A7CA200598DC6 /* CodingStyleSPM */,
 				927945C0283638E10077CF61 /* ModelCoreData.xcdatamodeld */,
 				92BC5D172815A01000E7448C /* VK(SwiftUI) */,
 				92BC5D162815A01000E7448C /* Products */,
@@ -260,6 +264,7 @@
 			packageProductDependencies = (
 				9228E73028353AA40009AB5A /* Alamofire */,
 				9228E737283544820009AB5A /* SDWebImageSwiftUI */,
+				92BE12E9283A813600598DC6 /* CodingStyleSPM */,
 			);
 			productName = "VK(SwiftUI)";
 			productReference = 92BC5D152815A01000E7448C /* VK(SwiftUI).app */;
@@ -292,6 +297,7 @@
 			packageReferences = (
 				9228E72F28353AA40009AB5A /* XCRemoteSwiftPackageReference "Alamofire" */,
 				9228E736283544820009AB5A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				92BE12E8283A813600598DC6 /* XCRemoteSwiftPackageReference "CodingStyleSPM" */,
 			);
 			productRefGroup = 92BC5D162815A01000E7448C /* Products */;
 			projectDirPath = "";
@@ -566,6 +572,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		92BE12E8283A813600598DC6 /* XCRemoteSwiftPackageReference "CodingStyleSPM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/DenisLedovskiy/CodingStyleSPM";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -578,6 +592,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9228E736283544820009AB5A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		92BE12E9283A813600598DC6 /* CodingStyleSPM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92BE12E8283A813600598DC6 /* XCRemoteSwiftPackageReference "CodingStyleSPM" */;
+			productName = CodingStyleSPM;
 		};
 /* End XCSwiftPackageProductDependency section */
 
