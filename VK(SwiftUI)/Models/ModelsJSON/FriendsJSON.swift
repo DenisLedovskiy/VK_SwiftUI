@@ -2,7 +2,7 @@
 //  FriendsJSON.swift
 //  VK(SwiftUI)
 //
-//  Created by Денис Ледовский on 18.05.2022.
+//  Created by Денис Ледовский on 30.05.2022.
 //
 
 import Foundation
@@ -33,3 +33,4 @@ struct Items: Codable {
         case trackCode = "track_code"
     }
 }
+

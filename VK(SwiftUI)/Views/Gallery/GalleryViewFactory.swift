@@ -12,7 +12,7 @@ class GalleryViewFactory: ObservableObject {
     let api: PhotosService
     let friend: ViewDataCell
 
-    @Published var photos: [String] = []
+    @Published var photos: [Photos] = []
 
     init(friend: ViewDataCell, api: PhotosService) {
         self.friend = friend
@@ -27,15 +27,15 @@ class GalleryViewFactory: ObservableObject {
         }
     }
 
-    func fillPhotoArray(_ photoInitialResponse: PhotosInitialResponse) -> [String] {
+    func fillPhotoArray(_ photoInitialResponse: PhotosInitialResponse) -> [Photos] {
 
-        var photoArray: [String] = []
+        var photoArray: [Photos] = []
         let photoCount = photoInitialResponse.response.items.count
         let photo = photoInitialResponse.response.items
 
         if photoCount > 1 {
             for i in 0...photoCount - 1 {
-                photoArray.append(photo[i].sizes[6].url)
+                photoArray.append(Photos(url: "\(photo[i].sizes[6].url)"))
             }
         }
         return(photoArray)

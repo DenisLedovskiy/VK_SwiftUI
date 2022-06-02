@@ -11,6 +11,8 @@ struct ContainerView: View {
 
     @State private var shouldShowMainView: Bool = false
     @ObservedObject var session = Session.shared
+//    @ObservedObject var viewModel: LoginViewModel
+
 
     var body: some View {
         NavigationView {

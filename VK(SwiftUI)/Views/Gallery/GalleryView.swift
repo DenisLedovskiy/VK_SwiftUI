@@ -12,47 +12,41 @@ struct GalleryView: View {
 
     @ObservedObject var viewModel: GalleryViewFactory
 
+    let columns = [
+    GridItem(.flexible(minimum: 0, maximum: .infinity)),
+    GridItem(.flexible(minimum: 0, maximum: .infinity)), ]
+
+    @State private var photoRowHeight: CGFloat? = nil
+    @State private var selection: Int? = nil
+
     init(viewModel: GalleryViewFactory) {
         self.viewModel = viewModel
 
     }
 
     var body: some View {
-
-        let photoArray = viewModel.photos.chunked(into: 2)
-
-        return VStack {
-
-            ScrollView {
-
-                VStack(spacing: 16) {
-
-                    ForEach(photoArray.indices, id:\.self) { idx in
-
-                        HStack {
-
-                            ForEach(photoArray[idx].indices, id:\.self) { index in
-
-                                HStack {
-                                        Spacer()
-                                    ZStack {
-                                        WebImage(url: URL(string:photoArray[idx][index]))
-                                            .resizable()
-                                            .frame(maxWidth: 200, maxHeight: 200)
-                                            .cornerRadius(8)
-                                        LikeButton()
-                                            .position(x: 170, y: 188)
-                                    }
-                                    Spacer()
-                                }
-                            }
+        GeometryReader { geometry in
+            ScrollView(.vertical) {
+                LazyVGrid(columns: columns, alignment: .center, spacing: 16) {
+                    if let photos = viewModel.photos {
+                        ForEach(photos) { photo in
+                            PhotosViewCell(photo: photo, index: photos.index(of: photo), selection: $selection)
+                                .frame(height: photoRowHeight)
                         }
                     }
                 }
             }
-            .onAppear { viewModel.fetch() }
+        }
+        .onAppear { viewModel.fetch() }
+        .onPreferenceChange(PhotoHeightPreferenceKey.self) { height in
+            photoRowHeight = height
+        }
+        .overlayPreferenceValue(SelectionPreferenceKey.self) {
+            SelectionRectangle(anchor: $0)
+            
         }
     }
+
 }
 
 //struct GalleryView_Previews: PreviewProvider {

@@ -11,6 +11,7 @@ import WebKit
 struct VKLoginWebView: UIViewRepresentable {
 
     @ObservedObject var session = Session.shared
+//    @ObservedObject var viewModel: LoginViewModel
 
     fileprivate let navigationDelegate = WebViewNavigationDelegate()
 
@@ -37,7 +38,7 @@ struct VKLoginWebView: UIViewRepresentable {
             URLQueryItem(name: "display", value: "mobile"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "response_type", value: "token"),
-            URLQueryItem(name: "v", value: session.version)
+            URLQueryItem(name: "v", value: session.cliendId)
         ]
 
         return components.url.map { URLRequest(url: $0) }
@@ -45,8 +46,8 @@ struct VKLoginWebView: UIViewRepresentable {
 }
 
 
-struct VKLoginWebView_Previews: PreviewProvider {
-    static var previews: some View {
-        VKLoginWebView()
-    }
-}
+//struct VKLoginWebView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VKLoginWebView(viewModel: LoginViewModel)
+//    }
+//}
